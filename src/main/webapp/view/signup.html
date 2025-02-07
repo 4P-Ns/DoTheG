@@ -158,6 +158,34 @@ button:focus {
 				<label for="nickname">닉네임</label> <input type="text"
 					id="nickname" name="nickname" required>
 			</div>
+			<div class="form-group">
+			    <label>회원 유형</label>
+			    <div>
+			        <label for="teacher">선생님</label>
+			        <input type="checkbox" id="teacher" name="roleCheckbox" value="teacher" onchange="toggleCheckbox(this)">
+			        
+			        <label for="student">학생</label>
+			        <input type="checkbox" id="student" name="roleCheckbox" value="student" onchange="toggleCheckbox(this)">
+			    </div>
+			</div>
+			
+			<!-- 선택된 값이 저장될 hidden input -->
+			<input type="hidden" id="role" name="role" value="">
+			
+			<script>
+			    function toggleCheckbox(clickedCheckbox) {
+			        let checkboxes = document.getElementsByName("roleCheckbox");
+			        checkboxes.forEach((checkbox) => {
+			            if (checkbox !== clickedCheckbox) {
+			                checkbox.checked = false; // 다른 체크박스 선택 해제
+			            }
+			        });
+			
+			        // 선택된 체크박스의 value를 hidden input에 저장
+			        document.getElementById("role").value = clickedCheckbox.checked ? clickedCheckbox.value : "";
+			    }
+			</script>
+
 			<button type="submit">가입 완료</button>
 		</form>
 		<p id="message"></p>
