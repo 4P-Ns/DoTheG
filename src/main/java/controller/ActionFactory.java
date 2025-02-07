@@ -1,0 +1,46 @@
+package controller;
+
+import controller.action.Action;
+import controller.action.AllViewBoardAction;
+import controller.action.DeleteBoardAction;
+import controller.action.UpdateBoardAction;
+import controller.action.UpdateFormBoardAction;
+import controller.action.ViewBoardAction;
+import controller.action.WriteBoardAction;
+
+public class ActionFactory {
+	
+	private static ActionFactory instance = new ActionFactory();
+	private ActionFactory(){}
+	
+	public static ActionFactory getInstance(){
+		return instance;
+	}
+	
+	public Action getAction(String command){ //list
+		Action action = null;
+		
+		if(command.equals("main")){	 	
+			action = new MainPageAction();
+		}else if(command.equals("register")){ 
+			action = new RegisterAccountAction();
+		}else if(command.equals("login")){  
+			action = new LoginAction();
+		}else if(command.equals("lecture")){  
+			action = new LectureViewAction();
+		}else if(command.equals("write")){ 
+			action = new WriteArticleAction();
+		}else if(command.equals("board")){
+			action = new ArticleViewAction();
+		}else if(command.equals("lecture_detail")){ 
+			action = new LectureDetailAction();
+		}else if(command.equals("update")){ 
+			action = new UpdateArticleAction();
+		}else if(command.equals("delete")){ 
+			action = new DeleteArticleAction();
+		}
+		
+		return action;
+	}
+}
+
