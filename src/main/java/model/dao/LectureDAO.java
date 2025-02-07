@@ -3,31 +3,47 @@ package model.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
-import model.domain.Lecture; // Lecture 클래스 import 필요
+import model.domain.Lecture;
 import util.DataSourceManager;
 
 public class LectureDAO {
-    public List<Lecture> getAllLectures() {
-        List<Lecture> lectures = new ArrayList<>();
-        String sql = "SELECT lecture_id, lecture_name, description, createdAt, endAt FROM lecture";
+	
+    public static ArrayList<Lecture> getAllLectures() throws SQLException {
+        String sql = "SELECT lecture_id, lecture_name, description, createdAt, endAt, member_id, family_id FROM lecture";
 
-        try (Connection conn = DataSourceManager.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql);
-             ResultSet rs = pstmt.executeQuery()) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        ArrayList<Lecture> lectures = new ArrayList<>();
+
+        try {
+            conn = DataSourceManager.getConnection();
+            pstmt = conn.prepareStatement(sql);
+            rs = pstmt.executeQuery();
 
             while (rs.next()) {
-                Lecture lecture = new Lecture();
-                lecture.setLectureId(rs.getInt("lecture_id"));
-                lecture.setLectureName(rs.getString("lecture_name"));
-                lecture.setDescription(rs.getString("description"));
-                lecture.setCreatedAt(rs.getDate("createdAt"));
-                lecture.setEndAt(rs.getDate("endAt"));
-                lectures.add(lecture);
+                lectures.add(new Lecture(
+                        rs.getInt("lecture_id"),
+                        rs.getString("lecture_name"),
+                        rs.getString("description"),
+                        rs.getDate("createdAt"),
+                        rs.getDate("endAt"),
+                        rs.getLong("member_id"),
+                        rs.getLong("family_id") ));
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
+            throw new SQLException("Database error occurred while fetching lectures.", e);
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (pstmt != null) pstmt.close();
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
         return lectures;
     }
