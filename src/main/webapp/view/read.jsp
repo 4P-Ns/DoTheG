@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%--
 	request.setAttribute("resultContent", gContent);
 --%>
@@ -122,16 +123,17 @@
 					<input type="hidden" name="command" value="">
 					
 					<!-- onclick : java script의 함수 -->
-					<input type="button" value="수정하기" onclick="sendUpdate()">
-					<input type="button" value="삭제하기" onclick="sendDelete()">
+					<c:if test="{$cookie.userId.value eq requestScope.authorUserId">
+						<input type="button" value="수정하기" onclick="sendUpdate()">
+						<input type="button" value="삭제하기" onclick="sendDelete()">
+					</c:if>
 				</form>
 				
 			</td>
 	    </tr>
 	</table>
 	<hr>
-	<div align='right'><span style="font-size:9pt;">&lt;<a href="board?command=list">리스트로 돌아가기</a>&gt;</span></div>
-
+	<div align='right'><span style="font-size:9pt;">&lt;<a href="article?command=board">게시판으로 돌아가기</a>&gt;</span></div>
 
 </body>
 </html>

@@ -129,6 +129,33 @@ public class ArticleDAO {
 		return articles;
 	}
 	
+	public static String getAuthorUserId(long authorId) throws SQLException{
+		Connection conn = null;	
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String authorUserId  = null;
+		
+		try {
+			conn = DataSourceManager.getConnection();
+			
+			pstmt = conn.prepareStatement("SELECT m.id FROM member m INNER JOIN article a ON m.member_id = a.member_id WHERE a.article_id = ?");
+			pstmt.setLong(1, authorId);
+			rset = pstmt.executeQuery();
+			
+			if (rset.next()){
+				authorUserId = rset.getString(1);
+			}
+		}catch (SQLException e){
+			e.printStackTrace();
+			throw e;
+		}finally{
+			DataSourceManager.close(conn, pstmt, rset);
+		}
+		
+		return authorUserId;
+	}
+	
 	//update
 	public static boolean updateArticle(String id, Article article) throws SQLException{
 		Connection conn = null;	
