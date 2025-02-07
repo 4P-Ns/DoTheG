@@ -1,0 +1,72 @@
+# 📌 Eclipse / STS 관련 파일 (IDE 설정 파일)
+.classpath
+.project
+.settings/
+
+# 📌 IntelliJ 관련 파일 (IDE 변경 시 충돌 방지)
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# 📌 Maven 관련 파일
+mvnw
+mvnw.cmd
+.mvn/
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# 📌 Gradle 관련 파일 (사용 중이라면 추가)
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+.gradle-cache/
+
+# 📌 Tomcat / WAS 관련 (내장 Tomcat 실행 시 생성되는 파일)
+logs/
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+*.swn
+*.pid  # 프로세스 ID 파일
+*.hprof  # 힙 덤프 파일
+*.out  # 콘솔 출력 로그
+
+# 📌 서블릿 컴파일된 `.class` 파일 제외
+build/
+WEB-INF/classes/
+*.class
+
+# 📌 JSP 컴파일된 `.java` 파일 제외
+work/
+tomcat.*  # 톰캣 실행 중 생성되는 작업 파일
+*.war  # 배포용 WAR 파일 제외
+*.ear  # 배포용 EAR 파일 제외
+
+# 📌 운영체제(OS) 관련 불필요한 파일
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# 📌 IDE 자동 생성 파일
+.vscode/
+*.sublime-workspace
+
+# 📌 Git 충돌 시 생성되는 파일
+*.orig
+
+# 📌 Node.js 관련 
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
