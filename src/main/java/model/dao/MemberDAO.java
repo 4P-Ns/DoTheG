@@ -10,7 +10,7 @@ import util.DataSourceManager;
 
 public class MemberDAO {
 	// id로 해당 멤버의 모든 정보 반환
-	public static Member getMember(long memberId) throws SQLException {
+	public static Member getMember(String id) throws SQLException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -18,8 +18,8 @@ public class MemberDAO {
 
 		try {
 			conn = DataSourceManager.getConnection();
-			pstmt = conn.prepareStatement("select * from member where member_id=?");
-			pstmt.setLong(1, memberId);
+			pstmt = conn.prepareStatement("select * from member where id=?");
+			pstmt.setString(1, id);
 			rset = pstmt.executeQuery();
 			if (rset.next()) {
 				member = new Member(rset.getLong(1), 

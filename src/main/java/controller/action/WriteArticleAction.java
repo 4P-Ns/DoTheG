@@ -7,6 +7,7 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.dao.ArticleDAO;
+import model.dao.MemberDAO;
 import model.domain.Article;
 import model.domain.Member;
 
@@ -23,19 +24,19 @@ public class WriteArticleAction {
 			}
 
 			Cookie[] cookies = request.getCookies();
-			String memberId = null;
+			String id = null;
 			if (cookies != null) {
 				for (Cookie c : cookies) {
-					if (c.getName().equals("memberId")) {
-						memberId = c.getValue();
+					if (c.getName().equals("id")) {
+						id = c.getValue();
 						break;
 					}
 				}
 			}
 
-			Member member = getMember(Long.parseLong(memberId));
+			Member member = MemberDAO.getMember(id);
 
-			boolean result = ArticleDAO.writeContent(member, new Article(title, content));
+			boolean result = ArticleDAO.writeArticle(member, new Article(title, content));
 
 			if (result) {
 				response.sendRedirect("article?command=list");
@@ -48,8 +49,4 @@ public class WriteArticleAction {
 		}
 	}
 
-	private Member getMember(long long1) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }

@@ -4,23 +4,34 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 import jakarta.servlet.ServletException;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.guestbook.GuestBookDAO;
+import model.dao.ArticleDAO;
 
-public class DeleteBoardAction implements Action{
+public class DeleteArticleAction implements Action{
 
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String strNum = request.getParameter("num");
-		String password = request.getParameter("password");
+		String articleId = request.getParameter("article_id");
+		String authorId = request.getParameter("author_id");
+		
+		String id = null;
+		Cookie[] cookies = request.getCookies();
+		if(cookies!=null) {
+			for(Cookie c:cookies) {
+				if(c.getName().equals("id")) {
+					id = c.getValue();
+					break;
+				}
+			}
+		}
 		
 		try{
-			if(strNum == null || strNum.trim().length() == 0 || password == null || password.trim().length() == 0){
+			if(articleId == null || articleId.trim().length() == 0 || id == null || id.trim().length() == 0){
 				throw new Exception("입력값이 충분하지 않습니다.");
 			}
-
-			boolean result = GuestBookDAO.deleteContent(Integer.parseInt(strNum), password);
 			
+			boolean result = ArticleDAO.deleteArticle(Long.parseLong(articleId),Long.parseLong(authorId));
 
 			if(result){
 				response.sendRedirect("board?command=list");
