@@ -9,10 +9,10 @@ import jakarta.servlet.http.HttpServletResponse;
 import model.dao.ArticleDAO;
 import model.domain.Article;
 
-public class UpdateFormBoardAction implements Action {
+public class UpdateFormArticleAction implements Action {
 
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = "error.jsp";
+		String url = "view/error.jsp";
 		//<input type="hidden" name="num" value="${requestScope.resultContent.num}">
 		String articleId = request.getParameter("article_id");
 		
@@ -41,7 +41,7 @@ public class UpdateFormBoardAction implements Action {
 //				gContent.setContent(gContent.getContent());//?
 				
 				request.setAttribute("resultContent", article);
-				url = "update.jsp";
+				url = "view/update.jsp";
 			}
 		}catch (SQLException e) {
 			request.setAttribute("errorMsg", e.getMessage());

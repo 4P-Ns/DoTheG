@@ -40,10 +40,10 @@ public class DeleteArticleAction implements Action{
 			}
 		}catch (SQLException e) {
 			request.setAttribute("errorMsg", "시스템 문제가 발생했습니다.");
-			request.getRequestDispatcher("error.jsp").forward(request, response);
+			request.getRequestDispatcher("view/error.jsp").forward(request, response);
 		}catch (Exception e){
 			request.setAttribute("errorMsg", e.getMessage());
-			request.getRequestDispatcher("error.jsp").forward(request, response);
+			request.getRequestDispatcher("view/error.jsp").forward(request, response);
 		}
 	}
 	

@@ -117,7 +117,7 @@
 		}
 					
 		-->
-				<form name="requestForm" method="post" action="board">
+				<form name="requestForm" method="post" action="article">
 					<input type="hidden" name="article_id" value="${requestScope.resultContent.articleId}">
 					<input type="hidden" name="command" value="">
 					
