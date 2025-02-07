@@ -17,13 +17,10 @@ public class ArticleController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		String command = request.getParameter("command");
-		if(command == null) {
-			command = "list";   //모든 방명록 보기
-		}
 		
 		ActionFactory af = ActionFactory.getInstance();
 	
-		Action action = af.getAction(command);  //list, view, updateForm, write, update
+		Action action = af.getAction(command);  
 		action.execute(request, response);
 	}	
 }
