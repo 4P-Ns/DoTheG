@@ -22,7 +22,7 @@ public class ArticleDAO {
 			conn = DataSourceManager.getConnection();
 
 			pstmt = conn.prepareStatement(
-					"INSERT INTO gbook VALUES (seq_article_article_id.nextval, ?, ?, ?, ?, sysdate, sysdate)");
+					"INSERT INTO article VALUES (seq_article_article_id.nextval, ?, ?, ?, ?, sysdate, sysdate)");
 
 			pstmt.setString(1, member.getNickname());
 			pstmt.setString(2, article.getTitle());

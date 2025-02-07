@@ -14,7 +14,7 @@ import model.domain.Member;
 public class ArticleDetailViewAction implements Action{
 
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = "error.jsp";
+		String url = "view/error.jsp";
 		String articleId = request.getParameter("article_id");
 		
 		try{
