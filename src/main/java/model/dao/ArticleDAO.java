@@ -43,6 +43,7 @@ public class ArticleDAO {
 		return false;
 	}
 	
+	//read
 	public static Article getArticle(long articleId) throws SQLException{		
 		Connection conn = null;	
 		PreparedStatement pstmt = null;
