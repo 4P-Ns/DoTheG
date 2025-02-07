@@ -17,7 +17,7 @@ public class MemberDAO {
 		try {
 			conn = DataSourceManager.getConnection();
 			pstmt = conn.prepareStatement(
-					"INSERT INTO member VALUES (seq_member_member_id.nextval, ?, ?, ?, ?, ?, ?)");
+					"INSERT INTO member VALUES (9997, ?, ?, ?, ?, ?, ?, null, null)");
 			
 //			private long memberId;
 //			private String id;

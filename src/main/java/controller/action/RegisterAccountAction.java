@@ -13,6 +13,7 @@ import model.domain.Member;
 public class RegisterAccountAction implements Action {
 
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		
 		String url = "view/error.jsp";
@@ -27,16 +28,16 @@ public class RegisterAccountAction implements Action {
 		    
 		    if(id == null || password == null || username == null || nickname == null || email == null || role == null||
 		       id.trim().isEmpty() || password.trim().isEmpty() || username.trim().isEmpty() || nickname.trim().isEmpty() || email.trim().isEmpty() || role.trim().isEmpty()) {
-		        out.println("<script>alert('모든 필드를 입력해주세요.'); window.location='signup.jsp';</script>");
+		        out.println("<script>alert('모든 필드를 입력해주세요.'); window.location='view/signup.html';</script>");
 		        return;
 		    }
 		    
 		    boolean result = MemberDAO.registerMember(new Member(id, password, username, nickname, email, role));
 		    
 		    if(result) {
-	            out.println("<script>alert('가입 완료! " + nickname + "님 환영합니다~~!!'); window.location='signup.jsp';</script>");
+	            out.println("<script>alert('가입 완료! " + nickname + "님 환영합니다~~!!'); window.location.href='view/main.html';</script>");
 	        } else {
-	            out.println("<script>alert('가입에 실패했습니다. 다시 시도해주세요.'); window.location='signup.jsp';</script>");
+	            out.println("<script>alert('가입에 실패했습니다. 다시 시도해주세요.'); window.location='view/signup.html';</script>");
 	        }
 		    
 			url = "view/main.html";
