@@ -17,7 +17,7 @@ public class AllArticleViewAction implements Action {
 		
 		try {
 			request.setAttribute("articles", ArticleDAO.getAllArticles());
-			url = "article_view.jsp";
+			url = "list.jsp";
 		} catch (SQLException e) {
 			request.setAttribute("errorMsg", "모든 게시글 검색시 문제 발생, 잠시후 재 시도 하세요");
 			e.printStackTrace();
