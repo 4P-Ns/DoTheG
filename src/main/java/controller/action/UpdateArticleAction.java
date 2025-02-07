@@ -10,7 +10,7 @@ import model.dao.ArticleDAO;
 import model.domain.Article;
 
 
-public class UpdateBoardAction implements Action {
+public class UpdateArticleAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String articleId = request.getParameter("article_id");
@@ -40,7 +40,7 @@ public class UpdateBoardAction implements Action {
 			boolean result = ArticleDAO.updateArticle(id, new Article(title, content));
 			
 			if(result){
-				response.sendRedirect("board?command=view&article_id=" + articleId);
+				response.sendRedirect("article?command=view&article_id=" + articleId);
 			}else{
 				throw new Exception("게시물이 존재하지 않거나, 비밀번호가 올바르지 않습니다.");
 			}

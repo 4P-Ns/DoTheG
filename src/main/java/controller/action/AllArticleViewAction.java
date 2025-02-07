@@ -10,7 +10,7 @@ import model.dao.ArticleDAO;
 import model.guestbook.GuestBookDAO;
 
 
-public class ArticleViewAction implements Action {
+public class AllArticleViewAction implements Action {
  
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String url = "error.jsp";

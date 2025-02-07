@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import model.dao.ArticleDAO;
 import model.domain.Article;
 
-public class ViewBoardAction implements Action{
+public class ArticleDetailViewAction implements Action{
 
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String url = "error.jsp";

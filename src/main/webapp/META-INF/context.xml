@@ -8,8 +8,8 @@
 		maxTotal="20" 
 		maxIdle="10"
 		maxWaitMillis="-1" 
-		username="new_user" 
-		password="password"
+		username="DOTHEG" 
+		password="DOTHEG"
 		driverClassName="oracle.jdbc.driver.OracleDriver"
 		url="jdbc:oracle:thin:@192.168.0.87:1521:xe" />
 
