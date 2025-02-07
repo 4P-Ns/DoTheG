@@ -9,6 +9,44 @@ import model.domain.Member;
 import util.DataSourceManager;
 
 public class MemberDAO {
+	
+	public static boolean registerMember(Member member) throws SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			conn = DataSourceManager.getConnection();
+			pstmt = conn.prepareStatement(
+					"INSERT INTO member VALUES (seq_member_member_id.nextval, ?, ?, ?, ?, ?, ?)");
+			
+//			private long memberId;
+//			private String id;
+//			private String pw;
+//			private String name;
+//			private String nickname;
+//			private String email;
+//			private String role;
+//			private String profileImagePath;
+			
+			pstmt.setString(1, member.getId());
+			pstmt.setString(2, member.getPw());
+			pstmt.setString(3, member.getName());
+			pstmt.setString(4, member.getNickname());
+			pstmt.setString(5, member.getEmail());
+			pstmt.setString(6, member.getRole());
+
+			if (pstmt.executeUpdate() != 0) {
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			DataSourceManager.close(conn, pstmt);
+		}
+		return false;
+	}
+	
 	public static Member getMemberByPk(long memberId) throws SQLException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
