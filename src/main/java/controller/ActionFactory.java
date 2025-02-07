@@ -5,6 +5,8 @@ import controller.action.AllArticleViewAction;
 import controller.action.ArticleDetailViewAction;
 import controller.action.DeleteArticleAction;
 import controller.action.UpdateArticleAction;
+import controller.action.UpdateFormArticleAction;
+import controller.action.UpdateFormBoardAction;
 import controller.action.WriteArticleAction;
 
 public class ActionFactory {
@@ -41,6 +43,9 @@ public class ActionFactory {
 			action = new AllArticleViewAction();
 		}else if(command.equals("article_detail")){ 
 			action = new ArticleDetailViewAction();
+			
+		}else if(command.equals("updateForm")){ 
+			action = new UpdateFormArticleAction();
 		}else if(command.equals("update")){ 
 			action = new UpdateArticleAction();
 		}else if(command.equals("delete")){ 

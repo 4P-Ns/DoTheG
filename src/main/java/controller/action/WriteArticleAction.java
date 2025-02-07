@@ -45,7 +45,7 @@ public class WriteArticleAction {
 			}
 		} catch (Exception e) {
 			request.setAttribute("errorMsg", e.getMessage());
-			request.getRequestDispatcher("error.jsp").forward(request, response);
+			request.getRequestDispatcher("view/error.jsp").forward(request, response);
 		}
 	}
 
