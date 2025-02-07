@@ -29,8 +29,10 @@ public class ArticleDetailViewAction implements Action{
 				throw new Exception("게시물이 존재하지 않습니다.");
 			}else{
 				Member member = MemberDAO.getMemberByPk(article.getAuthorId());
+				String authorUserId = ArticleDAO.getAuthorUserId(article.getAuthorId());
 				request.setAttribute("resultContent", article);
 				request.setAttribute("author", member.getNickname());
+				request.setAttribute("authorUserId", authorUserId);
 				url = "view/read.jsp";
 			}
 		}catch (SQLException e) {
