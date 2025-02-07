@@ -11,7 +11,6 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-
 public class Member {
 	private long memberId;
 	private String id;
@@ -21,5 +20,5 @@ public class Member {
 	private String email;
 	private String role;
 	private String profileImagePath;
-	private String familyId;
+	private long familyId;
 }

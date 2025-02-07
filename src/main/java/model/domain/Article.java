@@ -22,4 +22,9 @@ public class Article {
 	private Date createdAt;
 	private Date updatedAt;
 	private long familyId;
+	
+	public Article(String title, String content){
+		this.title=title;
+		this.content=content;
+	}
 }

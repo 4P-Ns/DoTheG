@@ -2,15 +2,15 @@
 
 <Context>
 
-	<Resource name="jdbc/fisaOracleDB" 
+	<Resource name="jdbc/DoTheG" 
 		auth="Container"
 		type="javax.sql.DataSource" 
 		maxTotal="20" 
 		maxIdle="10"
 		maxWaitMillis="-1" 
-		username="Scott" 
-		password="tiger"
+		username="new_user" 
+		password="password"
 		driverClassName="oracle.jdbc.driver.OracleDriver"
-		url="jdbc:oracle:thin:@127.0.0.1:1521:xe" />
+		url="jdbc:oracle:thin:@192.168.0.87:1521:xe" />
 
 </Context>
