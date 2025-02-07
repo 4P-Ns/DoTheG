@@ -21,5 +21,5 @@ public class Member {
 	private String email;
 	private String role;
 	private String profileImagePath;
-	private String familyId;
+	private long familyId;
 }
