@@ -6,27 +6,27 @@ import java.sql.SQLException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.guestbook.GuestBookBean;
-import model.guestbook.GuestBookDAO;
+import model.dao.ArticleDAO;
+import model.domain.Article;
 
 public class ViewBoardAction implements Action{
 
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String url = "error.jsp";
-		String strNum = request.getParameter("num");
+		String articleId = request.getParameter("article_id");
 		
 		try{
-			if(strNum == null || strNum.length() == 0){
+			if(articleId == null || articleId.length() == 0){
 				throw new Exception("입력값이 충분하지 않습니다.");
 			}
 			
-	
-			GuestBookBean gContent = GuestBookDAO.getContent(Integer.parseInt(strNum), true);
 			
-			if(gContent == null){
+			Article article = ArticleDAO.getArticle(Long.parseLong(articleId));
+			
+			if(article == null){
 				throw new Exception("게시물이 존재하지 않습니다.");
 			}else{
-				request.setAttribute("resultContent", gContent);
+				request.setAttribute("resultContent", article);
 				url = "read.jsp";
 			}
 		}catch (SQLException e) {
