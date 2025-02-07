@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Signup Form</title>
+<style>
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Montserrat', sans-serif;
+	background: #f6f5f7;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	margin: 0;
+}
+
+.container {
+	background-color: #fff;
+	border-radius: 10px;
+	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px
+		rgba(0, 0, 0, 0.22);
+	padding: 20px;
+	width: 400px;
+	max-width: 100%;
+}
+
+h2 {
+	font-weight: bold;
+	margin: 0 0 20px;
+	text-align: center;
+}
+
+.form-group {
+	margin-bottom: 15px;
+}
+
+label {
+	display: block;
+	margin-bottom: 5px;
+	font-size: 14px;
+}
+
+input {
+	background-color: #eee;
+	border: none;
+	padding: 12px 15px;
+	margin: 8px 0;
+	width: 100%;
+	font-size: 14px;
+}
+
+button {
+	border-radius: 20px;
+	border: 1px solid #FF4B2B;
+	background-color: #FF4B2B;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+	cursor: pointer;
+	width: 100%;
+}
+
+button:active {
+	transform: scale(0.95);
+}
+
+button:focus {
+	outline: none;
+}
+
+#message {
+	margin-top: 20px;
+	text-align: center;
+	font-size: 14px;
+}
+
+.error {
+	color: red;
+	font-size: 12px;
+}
+
+.password-hint {
+	font-size: 12px;
+	color: #666;
+	margin-top: 5px;
+	display: none;
+}
+
+.password-strength {
+	margin-top: 5px;
+}
+
+.password-strength div {
+	height: 5px;
+	border-radius: 4px;
+}
+
+.weak {
+	width: 33%;
+	background-color: red;
+}
+
+.medium {
+	width: 66%;
+	background-color: orange;
+}
+
+.strong {
+	width: 100%;
+	background-color: green;
+}
+</style>
+</head>
+
+<body>
+	<div class="container">
+		<h2>회원가입</h2>
+		<form id="signupForm" action="../article?command=register" method="post">
+			<div class="form-group">
+				<label for="username">이름</label> <input type="text" id="username"
+					name="username" required>
+			</div>
+			<div class="form-group">
+				<label for="id">아이디</label> <input type="text" id="id"
+					name="id" required>
+			</div>
+			<div class="form-group">
+				<label for="email">이메일</label> <input type="email" id="email"
+					name="email" required>
+			</div>
+			<div class="form-group">
+				<label for="password">비밀번호</label> <input type="password"
+					id="password" name="password" required>
+				<div class="password-hint" id="passwordHint">
+					▪ 비밀번호는 최소 8자 이상 <br> ▪ 대문자 알파벳을 하나 이상 포함 (예: A, B, C...) <br>
+					▪ 소문자 알파벳을 하나 이상 포함 (예: a, b, c...) <br> ▪ 숫자를 하나 이상 포함 ▪
+					특수문자를 하나 이상 포함 (예: !, @, #...)
+				</div>
+				<span id="passwordError" class="error"></span>
+				<div class="password-strength" id="passwordStrength"></div>
+			</div>
+			<div class="form-group">
+				<label for="confirmPassword">비밀번호 확인</label> <input type="password"
+					id="confirmPassword" name="confirmPassword" required> <span
+					id="confirmPasswordError" class="error"></span>
+			</div>
+			<div class="form-group">
+				<label for="nickname">닉네임</label> <input type="text"
+					id="nickname" name="nickname" required>
+			</div>
+			<button type="submit">가입 완료</button>
+		</form>
+		<p id="message"></p>
+	</div>
+	<script>
+		document.getElementById('signupForm').addEventListener('submit', function (event) {
+		    event.preventDefault(); // 기본 제출 동작 막기
+	
+		    let username = document.getElementById('username').value;
+		    let email = document.getElementById('email').value;
+		    let password = document.getElementById('password').value;
+		    let confirmPassword = document.getElementById('confirmPassword').value;
+		    let message = document.getElementById('message');
+		    let passwordError = document.getElementById('passwordError');
+		    let confirmPasswordError = document.getElementById('confirmPasswordError');
+	
+		    // 비밀번호 유효성 검사
+		    let passwordValid = validatePassword(password);
+		    if (!passwordValid) {
+		        passwordError.textContent = '비밀번호가 기준에 맞지 않습니다.';
+		        return;
+		    } else {
+		        passwordError.textContent = '';
+		    }
+	
+		    // 비밀번호 확인 일치 여부 검사
+		    if (password !== confirmPassword) {
+		        confirmPasswordError.textContent = '비밀번호가 서로 맞지 않습니다.';
+		        return;
+		    } else {
+		        confirmPasswordError.textContent = '';
+		    }
+	
+		    // 성공 메시지 출력 (이 부분은 유지)
+		    message.style.color = 'green';
+		    message.textContent = '가입 완료! 어디로 떠나볼까요?';
+	
+		    // 🚀 폼 제출 (서버로 전송)
+		    this.submit(); // ✅ 유효성 검사 통과 후 폼 제출 실행
+		});
+
+
+        document.getElementById('password').addEventListener('focus', function () {
+            document.getElementById('passwordHint').style.display = 'block';
+        });
+
+        document.getElementById('password').addEventListener('blur', function () {
+            document.getElementById('passwordHint').style.display = 'none';
+        });
+
+        document.getElementById('password').addEventListener('input', function () {
+            let password = this.value;
+            let passwordStrength = document.getElementById('passwordStrength');
+            let strength = getPasswordStrength(password);
+
+            passwordStrength.innerHTML = ''; // Clear previous strength bars
+            if (strength) {
+                let strengthBar = document.createElement('div');
+                strengthBar.className = strength;
+                passwordStrength.appendChild(strengthBar);
+            }
+        });
+
+        function validatePassword(password) {
+            let regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            return regex.test(password);
+        }
+
+        function getPasswordStrength(password) {
+            if (password.length < 8) {
+                return 'weak';
+            }
+            if (password.match(/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])/)) {
+                return 'strong';
+            }
+            return 'medium';
+        }
+    </script>
+</body>
+
+</html>
