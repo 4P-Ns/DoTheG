@@ -12,7 +12,7 @@ import lombok.ToString;
 @Setter
 @ToString
 
-public class Group {
-	private long groupId;
-	private String groupName;
+public class Family {
+	private long familyId;
+	private String familyName;
 }

@@ -12,14 +12,14 @@ import lombok.ToString;
 @Setter
 @ToString
 
-public class User {
-	private long user_id;
+public class Member {
+	private long memberId;
 	private String id;
 	private String pw;
 	private String name;
 	private String nickname;
 	private String email;
 	private String role;
-	private String profile_image_path;
-	private String group_id;
+	private String profileImagePath;
+	private String familyId;
 }

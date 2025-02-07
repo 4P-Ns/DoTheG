@@ -16,10 +16,10 @@ import lombok.ToString;
 
 public class Article {
 	private long articleId;
-	private long userId;
+	private long authorId;
 	private String title;
 	private String content;
 	private Date createdAt;
 	private Date updatedAt;
-	private long groupId;
+	private long familyId;
 }
