@@ -7,7 +7,9 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.dao.ArticleDAO;
+import model.dao.MemberDAO;
 import model.domain.Article;
+import model.domain.Member;
 
 public class ArticleDetailViewAction implements Action{
 
@@ -26,8 +28,10 @@ public class ArticleDetailViewAction implements Action{
 			if(article == null){
 				throw new Exception("게시물이 존재하지 않습니다.");
 			}else{
+				Member member = MemberDAO.getMemberByPk(article.getAuthorId());
 				request.setAttribute("resultContent", article);
-				url = "read.jsp";
+				request.setAttribute("author", member.getNickname());
+				url = "view/read.jsp";
 			}
 		}catch (SQLException e) {
 			request.setAttribute("errorMsg", "해당 개시글 검색시 이슈 발생, 잠시후 재요청 해 주세요");			

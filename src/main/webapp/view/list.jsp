@@ -68,7 +68,7 @@
 									기능 구현시 pk에 즉 게시글 구분하는 방명록 번호가 중요
 									요청시 게시글 보기와 방명록 번호값 전송 
 									 -->
-									<a href="board?command=article_detail&num=${article.articleId}"> ${article.title}</a>
+									<a href="article?command=article_detail&article_id=${article.articleId}"> ${article.title}</a>
 								</span>
 							</p>
 						</td>
