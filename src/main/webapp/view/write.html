@@ -27,7 +27,7 @@ function checkValid() {
 <body>
 
 
-<form name="writeForm" method="post" action="board" onSubmit='return checkValid()'>
+<form name="writeForm" method="post" action="../article?command=board" onSubmit='return checkValid()'>
 
 	<input type="hidden" name="command" value="write">
 	
@@ -68,7 +68,7 @@ function checkValid() {
 </form>
 
 <hr>
-<div align=right><span style="font-size:9pt;">&lt;<a href="board?command=list">리스트로 돌아가기</a>&gt;</span></div>
+<div align=right><span style="font-size:9pt;">&lt;<a href="../article?command=board">리스트로 돌아가기</a>&gt;</span></div>
 
 </BODY>
 </HTML>
