@@ -21,6 +21,6 @@ public class Lecture {
 	private String description;
 	private Date createdAt; 
 	private Date endAt;
-	private long memberId;
+	private long memberId; // teacherId
 	private long familyId;
 }
