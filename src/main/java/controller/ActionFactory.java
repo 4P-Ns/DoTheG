@@ -1,7 +1,7 @@
 package controller;
 
 import controller.action.Action;
-import controller.action.AllViewBoardAction;
+import controller.action.ArticleViewAction;
 import controller.action.DeleteBoardAction;
 import controller.action.UpdateBoardAction;
 import controller.action.UpdateFormBoardAction;
