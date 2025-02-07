@@ -22,6 +22,7 @@ public class Article {
 	private Date createdAt;
 	private Date updatedAt;
 	private long familyId;
+	private boolean taskDone;
 
 	public Article(String title, String content) {
 		this.title = title;
