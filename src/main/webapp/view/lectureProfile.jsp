@@ -70,15 +70,21 @@
 	
 	.teacher-grid {
 	    display: grid;
+<<<<<<< Updated upstream
 	    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* 반응형 3열 구조 */
 	    gap: 20px; /* 카드 간격 */
 	    padding: 20px; /* 컨테이너 내부 여백 */
 	    justify-content: center; /* 가운데 정렬 */
 	    align-items: start; /* 상단 정렬 */
+=======
+	    grid-template-columns: repeat(3, 1fr);
+	    gap: 30px;
+>>>>>>> Stashed changes
 	}
 	
 	.teacher-card {
 	    text-align: center;
+<<<<<<< Updated upstream
 	    padding: 20px;
 	    border-radius: 16px;
 	    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -93,19 +99,47 @@
 	    object-fit: cover; /* 이미지 비율 유지 */
 	    border-radius: 8px;
 	    margin-bottom: 15px;
+=======
+	    padding: 10px;
+	    border-radius: 12px;
+	    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	    background-color: rgba(255, 227, 159, 1);
+	    position: relative;
+	    box-shadow: 0 2px 5px #553631;
+	    height: 500px;
+	}
+	
+	.teacher-image {
+	    width: 90%;
+	    height: auto;
+	    object-fit: cover;
+	    border-radius: 8px;
+	    margin-top: 20px; /* 상단 여백 추가 */
+	    margin-bottom: 10px;
+	    position: relative;
+	    z-index: 1;
+>>>>>>> Stashed changes
 	}
 	
 	
 	.teacher-name {
 	    font-weight: bold;
+<<<<<<< Updated upstream
 	    margin: 10px 0;
 	    font-size: 24px; /* 폰트 크기 축소 */
 	    color: #553631;
+=======
+	    margin: 20px 0;
+	    font-size: 36px;
+	    color: #553631;
+	
+>>>>>>> Stashed changes
 	}
 	
 	.teacher-desc {
 	    color: #444444;
 	    font-weight: bold;
+<<<<<<< Updated upstream
 	    margin: 10px 0;
 	    font-size: 18px; /* 폰트 크기 축소 */
 	}
@@ -114,12 +148,17 @@
     margin: 5px 0; /* 텍스트 간격 조정 */
     font-size: 16px; /* 기본 폰트 크기 */
     color: #333333;
+=======
+	    margin: 15px 0;
+	    font-size: 28px;
+>>>>>>> Stashed changes
 	}
 	</style>
 </head>
 <body>
     <h1>🦔 두더지 선생님 리스트 🦔</h1>
     <div class="container">
+<<<<<<< Updated upstream
     <div class="language-list">
             <div class="language-item">
                 <img src="../images/english_lang.png" alt="영어">
@@ -175,17 +214,56 @@
 	        <div class="teacher-card">
 	            <img src="<%= imagePath %>" alt="Lecture Image" class="teacher-image">
 	            <h3 class="teacher-name"><%= teacherName %> 선생님</h3>
+=======
+        <%
+            LectureDAO dao = new LectureDAO();
+            List<Lecture> lectures = dao.getAllLectures();
+            
+            MemberDAO dao2 = new MemberDAO();
+            Map<Integer, String> lectureTeachers = dao2.getLecturesTeacher();
+           
+        %>
+        
+        <% 
+            for (Lecture lecture : lectures) {
+                // Placeholder image path, replace with actual paths from your database
+                String imagePath = "../images/teacher0" + lecture.getLectureId() + ".png";
+
+                int lectureId = Integer.parseInt(String.valueOf(lecture.getLectureId()).trim());
+
+                boolean idExists = lectureTeachers.containsKey(lectureId);
+
+                String teacherName = "정보 없음";
+                if (idExists) {
+                    teacherName = lectureTeachers.get(lectureId);
+                }
+        %>
+          
+        <div class="teacher-grid">
+	        <div class="teacher-card">
+	            <img src="<%= imagePath %>" alt="Lecture Image" class="teacher-image">
+	            <h3 class="teacher-name"><%= teacherName %>선생님</h3>
+>>>>>>> Stashed changes
 	            <p class="teacher-desc"><%= lecture.getDescription() %></p>
 	            <p><strong>Start:</strong> <%= lecture.getCreatedAt() %></p>
 	            <p><strong>End:</strong> <%= lecture.getEndAt() %></p>
 	            
 	        </div>
+<<<<<<< Updated upstream
 
+=======
+		</div>
+>>>>>>> Stashed changes
 		
         <%
             }
         %>
+<<<<<<< Updated upstream
    	 		</div>
     	</div>
+=======
+    </div>
+    
+>>>>>>> Stashed changes
 </body>
 </html>
