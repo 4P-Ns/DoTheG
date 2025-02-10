@@ -151,7 +151,7 @@
             <!-- 로그인 상태일 때만 "나의 수업" 버튼 보이기 -->
             <c:if test="${not empty cookie.userId.value}">
                 <a href="/DoTheG/article?command=board">나의 수업</a>
-                <a href="logout.jsp">로그아웃</a>
+                <a href="/DoTheG/article?command=logout">로그아웃</a>
             </c:if>
 
             <!-- 로그인 상태가 아닐 때만 "로그인 / 회원가입" 버튼 보이기 -->
