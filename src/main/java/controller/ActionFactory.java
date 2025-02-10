@@ -4,6 +4,7 @@ import controller.action.Action;
 import controller.action.AllArticleViewAction;
 import controller.action.ArticleDetailViewAction;
 import controller.action.DeleteArticleAction;
+import controller.action.LogoutAction;
 import controller.action.RegisterAccountAction;
 import controller.action.UpdateArticleAction;
 import controller.action.UpdateFormArticleAction;
@@ -50,6 +51,8 @@ public class ActionFactory {
 			action = new DeleteArticleAction();
 		}else if(command.equals("register")){ 
 			action = new RegisterAccountAction();
+		}else if(command.equals("logout")){ 
+			action = new LogoutAction();
 		}
 
 		return action;
