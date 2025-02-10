@@ -6,16 +6,80 @@
 <head>
 <meta charset="UTF-8">
 <title>article_view.jsp</title>
+
+<style>
+@font-face {
+	font-family: 'NoonnuBasicGothicRegular';
+	src:
+		url('https://fastly.jsdelivr.net/gh/projectnoonnu/noon-2410@1.0/NoonnuBasicGothicRegular.woff2')
+		format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body {
+	background-color: #fff3d7;
+	font-family: 'NoonnuBasicGothicRegular';
+	margin: 0;
+	padding: 0;
+}
+
+table {
+	width: 90%; /* 테이블 크기 조정 */
+	max-width: 1000px; /* 최대 크기 제한 */
+	margin: 20px auto;
+	border-collapse: collapse;
+	background-color: #FFFFFF;
+}
+
+th, td {
+	padding: 10px;
+	text-align: center;
+	border: 1px solid #e3e4e6;
+}
+
+th {
+	background-color: #ef9a4a;
+	color: #553631;
+	font-weight: bold;
+}
+
+td {
+	font-size: 9pt;
+}
+
+a {
+	text-decoration: none;
+	color: #336699;
+	font-weight: bold;
+}
+
+a:hover {
+	color: #ef9a4a;
+}
+
+hr {
+	background: #FFE39F;
+	height: 3px;
+	border: 0;
+}
+
+div[align="right"] {
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+}
+</style> 
+
 </head>
 
 <body>
 	<table align="center" cellpadding="5" cellspacing="2" width="100%" bordercolordark="white" bordercolorlight="black">
 		<colgroup>
-			<col width="7%" />
-			<col width="60%" />
-			<col width="11%" />
-			<col width="15%" />
-			<col width="7%" />
+			<col width="40%" />
+			<col width="20%" />
+			<col width="20%" />
+			<col width="20%" />
 		</colgroup>
 	
 		<tr>
@@ -68,13 +132,13 @@
 									기능 구현시 pk에 즉 게시글 구분하는 방명록 번호가 중요
 									요청시 게시글 보기와 방명록 번호값 전송 
 									 -->
-									<a href="../article?command=article_detail&article_id=${article.articleId}"> ${article.title}</a>
+									<a href="/DoTheG/article?command=article_detail&article_id=${article.articleId}"> ${article.title}</a>
 								</span>
 							</p>
 						</td>
 						<td bgcolor="">
 							<p align="center">
-								<span style="font-size: 9pt;"> ${article.authorId}</span>
+								<span style="font-size: 9pt;"> ${article.authorName}</span>
 							</p>
 						</td>
 						<td bgcolor="">

@@ -13,7 +13,6 @@ import lombok.ToString;
 @Setter
 @Getter
 @ToString
-
 public class Article {
 	private long articleId;
 	private long authorId;
