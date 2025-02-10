@@ -17,8 +17,9 @@
 - [2️⃣ Overview](#2%EF%B8%8F⃣-overview)
 - [3️⃣ Business Model](#3%EF%B8%8F⃣-business-model)
 - [4️⃣ Expectations](#4%EF%B8%8F⃣-expectations)
-- [5️⃣ Trouble Shooting](#5%EF%B8%8F%E2%83%A3-trouble-shooting)
-- [6️⃣ Retrospective](#6%EF%B8%8F%E2%83%A3-retrospective)
+- [5️⃣ Skills & Architecture](#5%EF%B8%8F⃣-skills--architecture)
+- [6️⃣ Trouble Shooting](#6%EF%B8%8F%E2%83%A3-trouble-shooting)
+- [7️⃣ Retrospective](#7%EF%B8%8F%E2%83%A3-retrospective)
 
 <br>
 <br>
@@ -180,8 +181,12 @@
 
 ![image](https://github.com/user-attachments/assets/10bf6418-7be6-48a5-b876-f26098c92948)
 
+<br>
+<br>
 
-## 🛠 Skills
+## 5️⃣ Skills & Architecture
+
+### 🛠 Skills
 
 **Tech Stack**
 
@@ -208,19 +213,23 @@
 
 <br>
 
-## 🖥️ Architecture
+### 🖥️ Architecture
 
-### ☁️ ERD
+**☁️ ERD**
+
 ![image](https://github.com/user-attachments/assets/922edc9b-e8a0-47fc-ad12-d149e3ac8a50)
 
-### 💻 System Architecture
+<br>
+
+**💻 System Architecture**
+
 ![image](https://github.com/user-attachments/assets/40f13681-7695-48f2-bb87-e5b650a0d767)
 
 
 <br>
 
 
-## 5️⃣ Trouble Shooting
+## 6️⃣ Trouble Shooting
 
 ### ⚔ 로그인을 해도 ‘나의 수업’, '로그아웃’ 헤더가 보이지 않는 문제
 
@@ -278,7 +287,7 @@ forward 방식은 동일한 HTTP 요청을 유지하므로 로그인 정보(쿠�
 
 <br>
 
-## 6️⃣ Retrospective
+## 7️⃣ Retrospective
 
 - 타겟층을 명확히 정의하는 것의 중요성을 알게 되었다. 타겟층에 따라 사업 아이템, 주제, 제공해야 하는 서비스가 크게 달라지기므로 그들의 필요와 요구사항을 정확히 파악하는 것의 중요하다. 서비스 설계뿐 아니라, 어떻게 하면 사용자에게 가치를 제공하면서도 지속 가능한 수익 구조를 만들 수 있을지 고민하는 시간이었다.
 
