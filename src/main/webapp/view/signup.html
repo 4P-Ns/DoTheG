@@ -19,14 +19,44 @@
 	box-sizing: border-box;
 }
 
+.header {
+    position: fixed; /* 헤더를 고정 */
+    top: 0; /* 화면 상단에 배치 */
+    left: 0;
+    width: 100%; /* 전체 화면 너비 */
+    height: 80px; /* 헤더 높이 */
+    background-color: rgba(255, 227, 159, 1);
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* 다른 요소보다 위에 표시 */
+}
+
+.headerLogo {
+    padding: 15px; /* 위쪽 여백 추가 */
+}
+
+.headerLogo img {
+	height: 50px; /* 로고 크기 조정 */
+}
+
 body {
-	font-family: 'NoonnuBasicGothicRegular';
-	background: ##FFE39F;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100vh;
-	margin: 0;
+    font-family: 'NoonnuBasicGothicRegular';
+    background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* 세로 정렬 */
+    align-items: center;
+}
+
+.main-content {
+    margin-top: 100px; /* 헤더 높이만큼 폼을 아래로 이동 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    width: 100%;
 }
 
 .container {
@@ -91,6 +121,11 @@ button:focus {
 	outline: none;
 }
 
+
+button:hover {
+    background-color: #d1742b;
+}
+
 #message {
 	margin-top: 20px;
 	text-align: center;
@@ -132,10 +167,64 @@ button:focus {
 	width: 100%;
 	background-color: #7bc043;
 }
+
+/* 체크박스 그룹 스타일 */
+.checkbox-group {
+    display: flex;
+    gap: 20px; /* 각 항목 간 간격 */
+    margin-top: 10px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer; /* 커서를 손 모양으로 변경 */
+    font-size: 16px;
+    color: #553631;
+}
+
+.checkbox-label input {
+    display: none; /* 기본 체크박스 숨기기 */
+}
+
+.checkbox-label span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #e28d3e;
+    border-radius: 4px; /* 모서리를 둥글게 */
+    margin-right: 10px; /* 체크박스와 텍스트 간 간격 */
+    background-color: #fff;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.checkbox-label input:checked + span {
+    background-color: #e28d3e; /* 선택된 상태 색상 */
+    border-color: #d1742b;
+}
+
+.checkbox-label input:checked + span::after {
+    content: "";
+    display: block;
+    width: 10px;
+    height: 10px;
+    margin: 4px auto; /* 중앙 정렬 */
+    background-color: #fff;
+    border-radius: 2px;
+}
 </style>
 </head>
 
 <body>
+	<div class="header">
+			<a href="/DoTheG/view/main.jsp">
+	        	<div class="headerLogo">
+	            	<img src="/DoTheG/images/serviceLogo_ko.png" alt="로고 이미지">
+	        	</div>
+			</a>
+	</div>
+	
+	<div class="main-content">
 	<div class="container">
 		<h2>회원가입</h2>
 		<form id="signupForm" action="../article?command=register"
@@ -173,14 +262,17 @@ button:focus {
 					name="nickname" required>
 			</div>
 			<div class="form-group">
-				<label>회원 유형</label>
-				<div>
-					<label for="teacher">선생님</label> <input type="checkbox"
-						id="teacher" name="roleCheckbox" value="teacher"
-						onchange="toggleCheckbox(this)"> <label for="student">학생</label>
-					<input type="checkbox" id="student" name="roleCheckbox"
-						value="student" onchange="toggleCheckbox(this)">
-				</div>
+			    <label>회원 유형</label>
+			    <div class="checkbox-group">
+			        <label class="checkbox-label" for="teacher">
+			            <input type="checkbox" id="teacher" name="roleCheckbox" value="teacher" onchange="toggleCheckbox(this)">
+			            <span></span>선생님
+			        </label>
+			        <label class="checkbox-label" for="student">
+			            <input type="checkbox" id="student" name="roleCheckbox" value="student" onchange="toggleCheckbox(this)">
+			            <span></span>학생
+			        </label>
+			    </div>
 			</div>
 
 			<!-- 선택된 값이 저장될 hidden input -->
@@ -203,6 +295,7 @@ button:focus {
 			<button type="submit">가입 완료</button>
 		</form>
 		<p id="message"></p>
+	</div>
 	</div>
 	<script>
 		document.getElementById('signupForm').addEventListener('submit', function (event) {
