@@ -29,7 +29,7 @@
         </td>
         <td width="450" height="20"><b><span style="font-size:9pt;">
 		<input type=text name="author" size="30"
-		 value="${requestScope.author}"></span></b></td>
+		 value="${requestScope.authorUserId}"></span></b></td>
     </tr>
     <tr>
         <td width="150" height="20">
