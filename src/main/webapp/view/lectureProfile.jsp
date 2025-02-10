@@ -118,7 +118,9 @@
 	</style>
 </head>
 <body>
-    <h1>🦔 두더지 선생님 리스트 🦔</h1>
+    <h1><img src="../images/serviceLogo_only더지.png" alt="두더지" style="width: 50px; height: 50px; vertical-align: middle;"> 
+        두더지 선생님 리스트 
+        <img src="../images/serviceLogo_only더지.png" alt="두더지" style="width: 50px; height: 50px; vertical-align: middle;"></h1>
     <div class="container">
     <div class="language-list">
             <div class="language-item">
