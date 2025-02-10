@@ -21,13 +21,17 @@ public class ArticleDAO {
 
 			conn = DataSourceManager.getConnection();
 
-			pstmt = conn.prepareStatement(
-					"INSERT INTO article VALUES (seq_article_article_id.nextval, ?, ?, ?, ?, sysdate, sysdate)");
+			String sql = "INSERT INTO article (article_id, author_id, title, content, created_at, updated_at, family_id, task_done) " +
+                    "VALUES (seq_article_article_id.nextval, ?, ?, ?, sysdate, sysdate, ?, ?)";
 
-			pstmt.setString(1, member.getNickname());
-			pstmt.setString(2, article.getTitle());
-			pstmt.setString(3, article.getContent());
-			pstmt.setLong(4, member.getFamilyId());
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setLong(1, member.getMemberId()); // authorId는 숫자 ID여야 함
+	        pstmt.setString(2, article.getTitle());
+	        pstmt.setString(3, article.getContent());
+	        pstmt.setLong(4, member.getFamilyId());
+	        pstmt.setBoolean(5, article.isTaskDone()); // boolean 값 추가
 
 			if (pstmt.executeUpdate() != 0) {
 				return true;
