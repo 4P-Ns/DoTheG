@@ -4,8 +4,9 @@ import controller.action.Action;
 import controller.action.AllArticleViewAction;
 import controller.action.ArticleDetailViewAction;
 import controller.action.DeleteArticleAction;
+import controller.action.RegisterAccountAction;
 import controller.action.UpdateArticleAction;
-import controller.action.WriteArticleAction;
+import controller.action.UpdateFormArticleAction;
 
 public class ActionFactory {
 	
@@ -21,8 +22,6 @@ public class ActionFactory {
 		
 //		if(command.equals("main")){	 	
 //			action = new MainPageAction();
-//		}else if(command.equals("register")){ 
-//			action = new RegisterAccountAction();
 //		}else if(command.equals("lecture")){  
 //			action = new LectureViewAction();
 //		}else if(command.equals("write")){ 
@@ -41,10 +40,16 @@ public class ActionFactory {
 			action = new AllArticleViewAction();
 		}else if(command.equals("article_detail")){ 
 			action = new ArticleDetailViewAction();
+		}else if(command.equals("register")){ 
+			action = new RegisterAccountAction();
+		}else if(command.equals("updateForm")){ 
+			action = new UpdateFormArticleAction();
 		}else if(command.equals("update")){ 
 			action = new UpdateArticleAction();
 		}else if(command.equals("delete")){ 
 			action = new DeleteArticleAction();
+		}else if(command.equals("register")){ 
+			action = new RegisterAccountAction();
 		}
 
 		return action;

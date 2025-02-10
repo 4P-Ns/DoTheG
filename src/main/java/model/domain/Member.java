@@ -22,4 +22,13 @@ public class Member {
 	private String role;
 	private String profileImagePath;
 	private long familyId;
+	
+	public Member(String id, String password, String username, String nickname, String email, String role) {
+		this.id = id;
+		this.pw = password;
+		this.name = username;
+		this.nickname = nickname;
+		this.email = email;
+		this.role = role;
+	}
 }

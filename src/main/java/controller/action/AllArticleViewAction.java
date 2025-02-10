@@ -11,7 +11,7 @@ import model.dao.ArticleDAO;
 public class AllArticleViewAction implements Action {
  
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = "error.jsp";
+		String url = "view/error.jsp";
 		
 		try {
 			request.setAttribute("articles", ArticleDAO.getAllArticles());

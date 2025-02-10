@@ -22,7 +22,7 @@ public class ArticleDAO {
 			conn = DataSourceManager.getConnection();
 
 			pstmt = conn.prepareStatement(
-					"INSERT INTO gbook VALUES (seq_article_article_id.nextval, ?, ?, ?, ?, sysdate, sysdate)");
+					"INSERT INTO article VALUES (seq_article_article_id.nextval, ?, ?, ?, ?, sysdate, sysdate)");
 
 			pstmt.setString(1, member.getNickname());
 			pstmt.setString(2, article.getTitle());
@@ -127,6 +127,33 @@ public class ArticleDAO {
 		}
 		
 		return articles;
+	}
+	
+	public static String getAuthorUserId(long authorId) throws SQLException{
+		Connection conn = null;	
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String authorUserId  = null;
+		
+		try {
+			conn = DataSourceManager.getConnection();
+			
+			pstmt = conn.prepareStatement("SELECT m.id FROM member m INNER JOIN article a ON m.member_id = a.member_id WHERE a.article_id = ?");
+			pstmt.setLong(1, authorId);
+			rset = pstmt.executeQuery();
+			
+			if (rset.next()){
+				authorUserId = rset.getString(1);
+			}
+		}catch (SQLException e){
+			e.printStackTrace();
+			throw e;
+		}finally{
+			DataSourceManager.close(conn, pstmt, rset);
+		}
+		
+		return authorUserId;
 	}
 	
 	//update
