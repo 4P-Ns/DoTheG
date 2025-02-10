@@ -7,11 +7,14 @@
 <title>Signup Form</title>
 <style>
 @font-face {
-    font-family: 'NoonnuBasicGothicRegular';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noon-2410@1.0/NoonnuBasicGothicRegular.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-}	
+	font-family: 'NoonnuBasicGothicRegular';
+	src:
+		url('https://fastly.jsdelivr.net/gh/projectnoonnu/noon-2410@1.0/NoonnuBasicGothicRegular.woff2')
+		format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
 * {
 	box-sizing: border-box;
 }
@@ -41,7 +44,7 @@ h2 {
 	margin: 0 0 20px;
 	text-align: center;
 	font-weight: bold;
-    	color: #553631;
+	color: #553631;
 }
 
 .form-group {
@@ -135,14 +138,15 @@ button:focus {
 <body>
 	<div class="container">
 		<h2>회원가입</h2>
-		<form id="signupForm" action="../article?command=register" method="post">
+		<form id="signupForm" action="../article?command=register"
+			method="post">
 			<div class="form-group">
 				<label for="username">이름</label> <input type="text" id="username"
 					name="username" required>
 			</div>
 			<div class="form-group">
-				<label for="id">아이디</label> <input type="text" id="id"
-					name="id" required>
+				<label for="id">아이디</label> <input type="text" id="id" name="id"
+					required>
 			</div>
 			<div class="form-group">
 				<label for="email">이메일</label> <input type="email" id="email"
@@ -165,23 +169,23 @@ button:focus {
 					id="confirmPasswordError" class="error"></span>
 			</div>
 			<div class="form-group">
-				<label for="nickname">닉네임</label> <input type="text"
-					id="nickname" name="nickname" required>
+				<label for="nickname">닉네임</label> <input type="text" id="nickname"
+					name="nickname" required>
 			</div>
 			<div class="form-group">
-			    <label>회원 유형</label>
-			    <div>
-			        <label for="teacher">선생님</label>
-			        <input type="checkbox" id="teacher" name="roleCheckbox" value="teacher" onchange="toggleCheckbox(this)">
-			        
-			        <label for="student">학생</label>
-			        <input type="checkbox" id="student" name="roleCheckbox" value="student" onchange="toggleCheckbox(this)">
-			    </div>
+				<label>회원 유형</label>
+				<div>
+					<label for="teacher">선생님</label> <input type="checkbox"
+						id="teacher" name="roleCheckbox" value="teacher"
+						onchange="toggleCheckbox(this)"> <label for="student">학생</label>
+					<input type="checkbox" id="student" name="roleCheckbox"
+						value="student" onchange="toggleCheckbox(this)">
+				</div>
 			</div>
-			
+
 			<!-- 선택된 값이 저장될 hidden input -->
 			<input type="hidden" id="role" name="role" value="">
-			
+
 			<script>
 			    function toggleCheckbox(clickedCheckbox) {
 			        let checkboxes = document.getElementsByName("roleCheckbox");

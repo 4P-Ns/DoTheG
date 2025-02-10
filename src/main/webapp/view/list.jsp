@@ -17,6 +17,22 @@
 	font-style: normal;
 }
 
+.header {
+	height: 50px; /* 헤더 높이 줄이기 */
+	display: flex;
+	align-items: center;
+	justify-content: left;
+	padding-left: 20px; /* 왼쪽에 여백 추가 */
+}
+
+.headerLogo {
+    margin-top: 15px; /* 위쪽 여백 추가 */
+}
+
+.headerLogo img {
+	height: 50px; /* 로고 크기 조정 */
+}
+
 body {
 	background-color: #fff3d7;
 	font-family: 'NoonnuBasicGothicRegular';
@@ -74,88 +90,100 @@ div[align="right"] {
 </head>
 
 <body>
-	<table align="center" cellpadding="5" cellspacing="2" width="100%" bordercolordark="white" bordercolorlight="black">
-		<colgroup>
-			<col width="40%" />
-			<col width="20%" />
-			<col width="20%" />
-			<col width="20%" />
-		</colgroup>
-	
-		<tr>
-			<td bgcolor="#336699">
-				<p align="center">
-					<font color="white"> 
-						<b><span style="font-size: 9pt;">제목</span></b>
-					</font>
-				</p>
-			</td>
-			<td bgcolor="#336699">
-				<p align="center">
-					<font color="white"> <b><span style="font-size: 9pt;">작
-								성 자</span></b>
-					</font>
-				</p>
-			</td>
-			<td bgcolor="#336699">
-				<p align="center">
-					<font color="white"><b><span style="font-size: 9pt;">작
-								성 일</span></b></font>
-				</p>
-			</td>
-			<td bgcolor="#336699">
-				<p align="center">
-					<font color="white"><b><span style="font-size: 9pt;">수행 여부</span></b></font>
-				</p>
-			</td>
-		</tr>
-	
-		<c:choose>
-			<c:when test="${empty requestScope.articles}">
-				<tr>
-					<td colspan="5">
-						<p align="center">
-							<b><span style="font-size: 9pt;">등록된 게시글이 없습니다.</span></b>
-						</p>
-					</td>
-				</tr>
-			</c:when>
-	
-			<c:otherwise>
-				<!-- ArrayList에 방명록 데이터가 있는 상태 -->
-				<c:forEach items="${requestScope.articles}" var="article">
+
+	<div class="header">
+		<a href="/DoTheG/view/main.jsp">
+        	<div class="headerLogo">
+            	<img src="/DoTheG/images/serviceLogo_ko.png" alt="로고 이미지">
+        	</div>
+		</a>
+    </div>
+
+	<div class="main">
+		<table align="center" cellpadding="5" cellspacing="2" width="100%"
+			bordercolordark="white" bordercolorlight="black">
+			<colgroup>
+				<col width="40%" />
+				<col width="20%" />
+				<col width="20%" />
+				<col width="20%" />
+			</colgroup>
+
+			<tr>
+				<td bgcolor="#336699">
+					<p align="center">
+						<font color="white"> <b><span style="font-size: 9pt;">제목</span></b>
+						</font>
+					</p>
+				</td>
+				<td bgcolor="#336699">
+					<p align="center">
+						<font color="white"> <b><span style="font-size: 9pt;">작
+									성 자</span></b>
+						</font>
+					</p>
+				</td>
+				<td bgcolor="#336699">
+					<p align="center">
+						<font color="white"><b><span style="font-size: 9pt;">작
+									성 일</span></b></font>
+					</p>
+				</td>
+				<td bgcolor="#336699">
+					<p align="center">
+						<font color="white"><b><span style="font-size: 9pt;">수행
+									여부</span></b></font>
+					</p>
+				</td>
+			</tr>
+
+			<c:choose>
+				<c:when test="${empty requestScope.articles}">
 					<tr>
-						<td bgcolor="">
-							<p>
-								<span style="font-size: 9pt;"> 
-									<!-- 제목 클리시 해당 게시글만 보기 화면으로 이동
-									기능 구현시 pk에 즉 게시글 구분하는 방명록 번호가 중요
-									요청시 게시글 보기와 방명록 번호값 전송 
-									 -->
-									<a href="/DoTheG/article?command=article_detail&article_id=${article.articleId}"> ${article.title}</a>
-								</span>
-							</p>
-						</td>
-						<td bgcolor="">
+						<td colspan="5">
 							<p align="center">
-								<span style="font-size: 9pt;"> ${article.authorName}</span>
-							</p>
-						</td>
-						<td bgcolor="">
-							<p align="center">
-								<span style="font-size: 9pt;"> ${article.createdAt}</span>
-							</p>
-						</td>
-						<td bgcolor="">
-							<p align="center">
-								<span style="font-size: 9pt;"> ${article.taskDone}</span>
+								<b><span style="font-size: 9pt;">등록된 게시글이 없습니다.</span></b>
 							</p>
 						</td>
 					</tr>
-				</c:forEach>
-			</c:otherwise>
-		</c:choose>
-	</table>
+				</c:when>
+
+				<c:otherwise>
+					<!-- ArrayList에 방명록 데이터가 있는 상태 -->
+					<c:forEach items="${requestScope.articles}" var="article">
+						<tr>
+							<td bgcolor="">
+								<p>
+									<span style="font-size: 9pt;"> <!-- 제목 클리시 해당 게시글만 보기 화면으로 이동
+									기능 구현시 pk에 즉 게시글 구분하는 방명록 번호가 중요
+									요청시 게시글 보기와 방명록 번호값 전송 
+									 --> <a
+										href="/DoTheG/article?command=article_detail&article_id=${article.articleId}">
+											${article.title}</a>
+									</span>
+								</p>
+							</td>
+							<td bgcolor="">
+								<p align="center">
+									<span style="font-size: 9pt;"> ${article.authorName}</span>
+								</p>
+							</td>
+							<td bgcolor="">
+								<p align="center">
+									<span style="font-size: 9pt;"> ${article.createdAt}</span>
+								</p>
+							</td>
+							<td bgcolor="">
+								<p align="center">
+									<span style="font-size: 9pt;"> ${article.taskDone}</span>
+								</p>
+							</td>
+						</tr>
+					</c:forEach>
+				</c:otherwise>
+			</c:choose>
+		</table>
+	</div>
 	<hr>
 	
 	<div align="right">
