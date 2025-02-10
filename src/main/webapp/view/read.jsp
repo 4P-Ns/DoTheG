@@ -1,3 +1,4 @@
+<%@page import="org.hibernate.internal.build.AllowSysOut"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
@@ -124,13 +125,10 @@ div[align="right"] {
     }
 
     function sendDelete() {
-        var password = prompt("삭제할 게시물의 비밀번호를 입력하세요");
-        if (password) {
+        var reply = confirm("정말로 게시물을 삭제하시겠습니까?");
+        if (reply) {
             document.requestForm.command.value = "delete";
-            document.requestForm.password.value = password;
             document.requestForm.submit();
-        } else {
-            return false;
         }
     }
 </script>

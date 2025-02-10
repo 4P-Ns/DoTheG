@@ -1,150 +1,148 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-<meta charset="UTF-8">
-<title>글 작성 페이지</title>
-<style>
-@font-face {
-    font-family: 'NoonnuBasicGothicRegular';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noon-2410@1.0/NoonnuBasicGothicRegular.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-}
+    <meta charset="UTF-8">
+    <title>글 작성 페이지</title>
+    <style>
+        @font-face {
+            font-family: 'NoonnuBasicGothicRegular';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noon-2410@1.0/NoonnuBasicGothicRegular.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
 
-body {
-  background-color: #fff3d7;
-  font-family: 'NoonnuBasicGothicRegular';
-}
+        body {
+            background-color: #fff3d7;
+            font-family: 'NoonnuBasicGothicRegular';
+            margin: 0;
+            padding: 0;
+        }
 
-table {
-  width: 800px;
-  margin: 20px auto;
-  border-collapse: collapse;
-  background-color: #FFFFFF;
-  border: none; /* HTML에서 border="1" 제거 */
-}
+        table {
+            width: 800px;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #FFFFFF;
+        }
 
-th, td {
-  padding: 10px;
-  text-align: left;
-  border: none; /* 테두리 제거 */
-}
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: none;
+        }
 
-th {
-  background-color: #ef9a4a;
-  color: #553631;
-  font-weight: bold;
-}
+        th {
+            background-color: #ef9a4a;
+            color: #553631;
+            font-weight: bold;
+        }
 
-table tr:first-child td p {
-  background-color: #ffad60;
-  color: #553631;
-  font-size: 24px;
-}
+        table tr:first-child td p {
+            background-color: #ffad60;
+            color: #553631;
+            font-size: 24px;
+            text-align: center;
+            padding: 10px;
+        }
 
-input[type="text"], textarea {
-  width: 100%;
-  padding: 5px;
-  border: 1px solid #e3e4e6;
-  box-sizing: border-box;
-}
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #e3e4e6;
+            box-sizing: border-box;
+        }
 
-input[type="submit"], input[type="reset"] {
-  background-color: #e3e4e6;
-  color: #000000;
-  padding: 8px 16px;
-  border: none;
-  cursor: pointer;
-}
+        input[type="submit"], input[type="reset"] {
+            background-color: #e3e4e6;
+            color: #000000;
+            padding: 8px 16px;
+            border: none;
+            cursor: pointer;
+            margin-right: 5px;
+        }
 
-input[type="submit"]:hover, input[type="reset"]:hover {
-  background-color: #ef9a4a;
-}
+        input[type="submit"]:hover, input[type="reset"]:hover {
+            background-color: #ef9a4a;
+        }
 
-hr {
-    background: #FFE39F;
-    height: 3px;
-    border: 0;
-}
+        hr {
+            background: #FFE39F;
+            height: 3px;
+            border: 0;
+        }
 
-a {
-    text-decoration: none;
-    color: #553631;
-}
+        a {
+            text-decoration: none;
+            color: #553631;
+        }
 
-div[align="right"] {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-</style>
+        .button-container {
+            text-align: center;
+            margin-top: 10px;
+        }
 
+        .return-link {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+    </style>
+    
+    <script>
+        function checkValid() {
+            let form = document.forms["writeForm"];
+            let title = form.title.value.trim();
+            let content = form.content.value.trim();
+
+            if (title === "") {
+                alert("제목을 입력해 주세요.");
+                form.title.focus();
+                return false;
+            }
+            if (content === "") {
+                alert("글 내용을 입력해 주세요.");
+                form.content.focus();
+                return false;
+            }
+
+            return true;
+        }
+    </script>
 </head>
-<SCRIPT language=javascript>
 
-/* 각 입력 input tag인 입력 form에 입력 여부 검증 하는 java script 코드 
- */   
-
-function checkValid() {
-    var f = window.document.writeForm;
-		
-	
-	if ( f.title.value == "" ) {
-		alert( "제목을 입력해 주세요." );
-		return false;
-	}
-	if ( f.content.value == "" ) {
-        alert( "글 내용을 입력해 주세요." );
-        return false;
-    }
-    return true;
-}
-</SCRIPT>
 <body>
 
+    <form name="writeForm" method="post" action="/DoTheG/article" onsubmit="return checkValid()">
+        <input type="hidden" name="command" value="write">
 
-<form name="writeForm" method="post" action="../article?command=board" onSubmit='return checkValid()'>
+        <table cellpadding="10" cellspacing="2" width="800">
+            <tr>
+                <td colspan="2">
+                    <p><b>공부 내역 작성</b></p>
+                </td>
+            </tr>
+            <tr>
+                <td width="150"><p align="right"><b>제 목</b></p></td>
+                <td><input type="text" name="title"></td>
+            </tr>
+            <tr>
+                <td width="150"><p align="right"><b>내 용</b></p></td>
+                <td><textarea name="content" rows="10"></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="button-container">
+                    <input type="submit" value="글쓰기"> 
+                    <input type="reset" value="다시쓰기">
+                </td>
+            </tr>
+        </table>
+    </form>
 
-	<input type="hidden" name="command" value="write">
-	
-	<table align="center" cellpadding="10" cellspacing="2" width="800" border="1">
-	
-	    <tr>
-	        <td width="1220" height="20" colspan="2" bgcolor="#336699">
-	            <p align="center"><font color="white" size="3"><b>공부 내역 작성</b></font></p>
-	        </td>
-	    </tr>
-	    <tr>
-	        <td width="150" height="20">
-	            <p align="right"><b><span style="font-size:9pt;">제 목</span></b></p>
-	        </td>
-	        <td width="450" height="20" ><b><span style="font-size:9pt;">
-			<input type=text name="title" size="50"></span></b></td>
-	    </tr>
-	    <tr>
-	        <td width="150" height="20">
-	            <p align="right"><b><span style="font-size:9pt;">내 용</span></b></p>
-	        </td>
-	        <td width="450" height="20">
-	        	<b><span style="font-size:9pt;">
-					<textarea name="content" style="width: 100%; height: 300px;"></textarea>
-				</span></b>
-			</td>
-	    </tr>
-	    <tr>
-	        <td width="450" height="20" colspan="2" align="center">
-	        	<b><span style="font-size:9pt;">
-	        		<input type=submit value=글쓰기> 
-	        		<input type=reset value=다시쓰기>
-	        	</span></b>
-	        </td>
-	    </tr>
-	</table>
+    <hr>
 
-</form>
+    <div class="return-link">
+        <span>&lt;<a href="../article?command=board">리스트로 돌아가기</a>&gt;</span>
+    </div>
 
-<hr>
-<div align=right><span style="font-size:9pt;">&lt;<a href="../article?command=board">리스트로 돌아가기</a>&gt;</span></div>
-
-</BODY>
-</HTML>
+</body>
+</html>

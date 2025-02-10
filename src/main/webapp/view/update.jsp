@@ -11,7 +11,7 @@
 <%--
 	request.setAttribute("resultContent", gContent);
  --%>
-<form name="updateForm" method="post" action="article">
+<form name="updateForm" method="post" action="/DoTheG/article?command=update">
 
     <input type="hidden" name="command" value="update">
     <input type='hidden' name='article_id' value="${requestScope.resultContent.articleId}">
@@ -62,6 +62,6 @@
 </table>
 </form>
 <hr>
-<div align=right><span style="font-size:9pt;">&lt;<a href="article">리스트로 돌아가기</a>&gt;</span></div>
+<div align=right><span style="font-size:9pt;">&lt;<a href="/DoTheG/article?command=board">리스트로 돌아가기</a>&gt;</span></div>
 </BODY>
 </HTML>
