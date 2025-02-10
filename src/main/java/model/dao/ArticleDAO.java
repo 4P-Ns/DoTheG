@@ -21,7 +21,7 @@ public class ArticleDAO {
 
 			conn = DataSourceManager.getConnection();
 
-			String sql = "INSERT INTO article (article_id, author_id, title, content, created_at, updated_at, family_id, task_done) " +
+			String sql = "INSERT INTO article (article_id, author_id, title, content, createdat, updatedat, family_id, task_done) " +
                     "VALUES (seq_article_article_id.nextval, ?, ?, ?, sysdate, sysdate, ?, ?)";
 
 			
@@ -144,7 +144,7 @@ public class ArticleDAO {
 		try {
 			conn = DataSourceManager.getConnection();
 			
-			pstmt = conn.prepareStatement("SELECT m.id FROM member m INNER JOIN article a ON m.member_id = a.member_id WHERE a.article_id = ?");
+			pstmt = conn.prepareStatement("SELECT m.id FROM member m INNER JOIN article a ON m.member_id = a.member_id WHERE a.member_id = ?");
 			pstmt.setLong(1, authorId);
 			rset = pstmt.executeQuery();
 			
@@ -166,14 +166,16 @@ public class ArticleDAO {
 		Connection conn = null;	
 		PreparedStatement pstmt = null;
 		
+		Member member = MemberDAO.getMember(id);
+		
 		try {
 			conn = DataSourceManager.getConnection();
-			pstmt = conn.prepareStatement("UPDATE gbook set title=?, content=?, updatedAt=sysdate WHERE article_id=? and id=?");
+			pstmt = conn.prepareStatement("UPDATE article set title=?, content=?, updatedat=sysdate WHERE article_id=? and author_id=?");
 
 			pstmt.setString(1, article.getTitle());
 		    pstmt.setString(2, article.getContent());
 		    pstmt.setLong(3, article.getArticleId());
-		    pstmt.setString(4, id);
+		    pstmt.setLong(4, member.getMemberId());
 		    
 			int count = pstmt.executeUpdate();
 			
@@ -199,7 +201,7 @@ public class ArticleDAO {
 		try {
 			conn = DataSourceManager.getConnection(); //DB와 connection 생성
 			
-			pstmt = conn.prepareStatement("delete from activist where activist_id=? and author_id"); //SQL Statement 생성
+			pstmt = conn.prepareStatement("delete from article where article_id=? and author_id"); //SQL Statement 생성
 			pstmt.setLong(1, articleId); //statement의 ?에 parameter로 받은 변수 대입
 			pstmt.setLong(2, authorId);
 			int result = pstmt.executeUpdate(); //완성한 statement sql 실행 후 결과값 받기 
