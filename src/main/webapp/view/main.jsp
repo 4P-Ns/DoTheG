@@ -146,7 +146,7 @@
             <img src="/DoTheG/images/serviceLogo_ko.png" alt="로고 이미지">
         </div>
         <div class="headerLinks">
-            <a href="">수업 목록</a>
+            <a href="/DoTheG/view/lectureProfile.jsp">수업 목록</a>
             
             <!-- 로그인 상태일 때만 "나의 수업" 버튼 보이기 -->
             <c:if test="${not empty cookie.userId.value}">
@@ -169,7 +169,7 @@
             <h1>두지런하게 공부하고 함께 떠나요</h1>
             <p class="secondParagraph">*두지런하게'란? :'두(Do) + 더(더하다) + G(지식)'의 의미를 가진 '두더지'와 '부지런하게'의 합성어로,<br>
                 "두더지처럼 부지런하게 배움의 땅을 파고드는 긍정적인 도전자들의 자세"를 의미합니다.</p><br><br>
-            <button class="mainButton" onclick="location.href='/DoTheG/article?command=board'" >떠날 준비하기</button>
+            <button class="mainButton" onclick="location.href='/DoTheG/view/lectureProfile.jsp'" >떠날 준비하기</button>
         </div>
         <div class="mainImage">
             <img src="/DoTheG/images/mainPage.png" alt="메인 이미지">
