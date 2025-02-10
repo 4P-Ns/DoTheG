@@ -85,6 +85,27 @@ div[align="right"] {
 	justify-content: center;
 	margin-top: 20px;
 }
+
+/* 글쓰기 버튼 스타일 */
+.write-button {
+    display: inline-block;
+    background-color: #FF7A00;
+    color: white;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+    float: right; /* 상단 우측 정렬 */
+    margin-bottom: 10px; /* 버튼 아래 간격 */
+}
+
+.write-button:hover {
+    background-color: #FF4500;
+}
 </style> 
 
 </head>
@@ -100,6 +121,11 @@ div[align="right"] {
     </div>
 
 	<div class="main">
+		
+		<div align="right">
+			<a href="view/write.html" class="write-button">글쓰기</a>
+		</div>
+	
 		<table align="center" cellpadding="5" cellspacing="2" width="100%"
 			bordercolordark="white" bordercolorlight="black">
 			<colgroup>
@@ -185,10 +211,6 @@ div[align="right"] {
 		</table>
 	</div>
 	<hr>
-	
-	<div align="right">
-		<span style="font-size: 9pt;">&lt;<a href="view/write.html">글쓰기</a>&gt;
-		</span>
-	</div>
+
 </body>
 </html>
