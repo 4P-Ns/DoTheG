@@ -16,12 +16,10 @@ public class ArticleDetailViewAction implements Action{
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String url = "view/error.jsp";
 		String articleId = request.getParameter("article_id");
-		
 		try{
 			if(articleId == null || articleId.length() == 0){
 				throw new Exception("입력값이 충분하지 않습니다.");
 			}
-			
 			
 			Article article = ArticleDAO.getArticle(Long.parseLong(articleId));
 			
@@ -33,6 +31,7 @@ public class ArticleDetailViewAction implements Action{
 				request.setAttribute("resultContent", article);
 				request.setAttribute("author", member.getNickname());
 				request.setAttribute("authorUserId", authorUserId);
+				
 				url = "view/read.jsp";
 			}
 		}catch (SQLException e) {

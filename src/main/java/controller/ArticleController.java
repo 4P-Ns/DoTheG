@@ -21,7 +21,6 @@ public class ArticleController extends HttpServlet {
 			command = "board";   //모든 방명록 보기
 		}
 		
-		//System.out.println(command);
 		ActionFactory af = ActionFactory.getInstance();
 	
 		Action action = af.getAction(command);  
