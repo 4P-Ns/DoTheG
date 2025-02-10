@@ -32,7 +32,7 @@ public class LoginController extends HttpServlet {
 			response.addCookie(userIdCookie);
 			response.addCookie(userPwCookie);
 			
-			response.sendRedirect("/main.html");
+			request.getRequestDispatcher("view/main.jsp").forward(request, response);
 		} else {
 			System.out.println("test");
 			request.setAttribute("errorMessage", "등록되지 않은 아이디 혹은 비밀번호입니다.");
