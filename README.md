@@ -13,13 +13,12 @@
 <br>
 
 ## 📍 Contents
-- [1️⃣ Contributors](#1%EF%B8%8F⃣-overview)
-- [2️⃣ Overview](#2%EF%B8%8F⃣-contributors)
-- [3️⃣ Insight](#3%EF%B8%8F⃣-insight)
-- [4️⃣ New Strategy](#4%EF%B8%8F⃣-new-strategy)
-- [5️⃣ Environment Settings](#5%EF%B8%8F⃣-environment-settings)
-- [6️⃣ Trouble Shooting](#6%EF%B8%8F%E2%83%A3-trouble-shooting)
-- [7️⃣ Retrospective](#7%EF%B8%8F%E2%83%A3-retrospective)
+- [1️⃣ Contributors](#1%EF%B8%8F⃣-contributors)
+- [2️⃣ Overview](#2%EF%B8%8F⃣-overview)
+- [3️⃣ Business Model](#3%EF%B8%8F⃣-business-model)
+- [4️⃣ Expectations](#4%EF%B8%8F⃣-expectations)
+- [5️⃣ Trouble Shooting](#5%EF%B8%8F%E2%83%A3-trouble-shooting)
+- [6️⃣ Retrospective](#6%EF%B8%8F%E2%83%A3-retrospective)
 
 <br>
 <br>
@@ -73,9 +72,9 @@
 <br>
 
 - 👨‍👩‍👧‍👦 **가족/지인 연계 학습 시스템**: 가족과 친구들이 모여 서로 도와가며 즐겁게 배우는 상호작용 중심의 교육 환경 구축⁠⁠
-- 
+ 
 - ✈️ **학습-여행 연계 서비스**: 학습 완료 시 여행 비용 절감 혜택을 제공하고, 배운 언어를 실제로 활용할 수 있는 기회 제공⁠⁠
-- 
+  
 - 📱 **학습 관리 시스템:**  맞춤형 진도 관리와 성취도 트래킹을 통해 체계적인 학습 지원⁠⁠<br>
 <br>
 
@@ -281,4 +280,7 @@ forward 방식은 동일한 HTTP 요청을 유지하므로 로그인 정보(쿠�
 
 ## 6️⃣ Retrospective
 
+- 타겟층을 명확히 정의하는 것의 중요성을 알게 되었다. 타겟층에 따라 사업 아이템, 주제, 제공해야 하는 서비스가 크게 달라지기므로 그들의 필요와 요구사항을 정확히 파악하는 것의 중요하다. 서비스 설계뿐 아니라, 어떻게 하면 사용자에게 가치를 제공하면서도 지속 가능한 수익 구조를 만들 수 있을지 고민하는 시간이었다.
+
+- 단순히 언어만 배우거나 여행만 하는 서비스를 넘어, 사용자들에게 지속적인 동기부여를 제공하기 위해 사용자들에게 보람과 실질적인 혜택을 줄 수 있는 구조를 설계하는 과정이었다.
 
