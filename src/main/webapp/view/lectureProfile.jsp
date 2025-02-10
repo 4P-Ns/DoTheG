@@ -146,7 +146,6 @@
                 <span>아랍어</span>
             </div>
         </div>
-        
         <div class="teacher-grid">
 	        <%
 	            LectureDAO dao = new LectureDAO();
@@ -171,17 +170,15 @@
 	                    teacherName = lectureTeachers.get(lectureId);
 	                }
 	        %>
-
 	        <div class="teacher-card">
 	            <img src="<%= imagePath %>" alt="Lecture Image" class="teacher-image">
 	            <h3 class="teacher-name"><%= teacherName %> 선생님</h3>
 	            <p class="teacher-desc"><%= lecture.getDescription() %></p>
 	            <p><strong>Start:</strong> <%= lecture.getCreatedAt() %></p>
 	            <p><strong>End:</strong> <%= lecture.getEndAt() %></p>
-	            
+
 	        </div>
 
-		
         <%
             }
         %>
