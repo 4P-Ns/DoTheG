@@ -84,6 +84,7 @@ public class ArticleDAO {
 		return article;
 	}
 	
+	//read all
 	public static ArrayList<Article> getAllArticles() throws SQLException{		
 		Connection conn = null;	
 		PreparedStatement pstmt = null;
