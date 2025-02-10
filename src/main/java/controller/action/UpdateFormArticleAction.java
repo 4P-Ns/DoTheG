@@ -7,7 +7,9 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.dao.ArticleDAO;
+import model.dao.MemberDAO;
 import model.domain.Article;
+import model.domain.Member;
 
 public class UpdateFormArticleAction implements Action {
 
@@ -21,6 +23,7 @@ public class UpdateFormArticleAction implements Action {
 			}
 			
 			Article article = ArticleDAO.getArticle(Long.parseLong(articleId));
+			Member member = MemberDAO.getMemberByPk(article.getAuthorId());
 			
 			if(article == null){
 				throw new Exception("해당 게시물이 존재하지 않아 수정 불가입니다.");
@@ -28,6 +31,7 @@ public class UpdateFormArticleAction implements Action {
 				article.setContent(article.getContent().replaceAll("<br/>", "\n"));//???
 				
 				request.setAttribute("resultContent", article);
+				request.setAttribute("authorUserId", member.getNickname());
 				url = "view/update.jsp";
 			}
 		}catch (SQLException e) {

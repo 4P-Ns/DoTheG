@@ -18,11 +18,11 @@ public class ArticleDAO {
 		PreparedStatement pstmt = null;
 
 		try {
-
 			conn = DataSourceManager.getConnection();
 
-			String sql = "INSERT INTO article (article_id, author_id, title, content, createdat, updatedat, family_id, task_done) " +
-                    "VALUES (seq_article_article_id.nextval, ?, ?, ?, sysdate, sysdate, ?, ?)";
+			String sql = "INSERT INTO article (article_id, member_id, title, content, createdat, updatedat, family_id, task_done) " +
+//                    "VALUES (seq_article_article_id.nextval, ?, ?, ?, sysdate, sysdate, ?, ?)";
+						"VALUES (9999, ?, ?, ?, sysdate, sysdate, ?, ?)";
 
 			
 			pstmt = conn.prepareStatement(sql);
@@ -97,20 +97,10 @@ public class ArticleDAO {
 		ArrayList<Article> articles  = null;
 		
 		try {
-			System.out.println("DAO start");
 			conn = DataSourceManager.getConnection();
 			
 			pstmt = conn.prepareStatement("SELECT article_id, member_id, title, content, createdat, updatedat, family_id, task_done from article");
 			rset = pstmt.executeQuery();
-			
-			/* replaceAll("\n","<br/>")
-			 * - 문자열의 모든 \n을 <br /> 변환해주는 메소드
-			 * - 필요성
-			 * 	- 브라우저에선 <br> tag가 new line
-			 *  - 순수 문자열의 \n 개행을 의미하는 특수 기호
-			 *  - 브라우저에 new line입력할 경우 db에도 \n과 같은 형식으로 저장
-			 *  - 실제 브라우저에 출력시에는 new line (\n) -> <br /> 변환해서 출력			 * 
-			 */
 			
 			articles = new ArrayList<>();
 			while (rset.next()){
@@ -122,7 +112,6 @@ public class ArticleDAO {
 										rset.getDate(6), 
 										rset.getLong(7), 
 										rset.getBoolean(8)));
-				System.out.println(articles.get(0).getTitle());
 			}
 		}catch (SQLException e){
 			e.printStackTrace();
@@ -162,20 +151,17 @@ public class ArticleDAO {
 	}
 	
 	//update
-	public static boolean updateArticle(String id, Article article) throws SQLException{
+	public static boolean updateArticle(String title, String content, long articleId) throws SQLException{
 		Connection conn = null;	
 		PreparedStatement pstmt = null;
 		
-		Member member = MemberDAO.getMember(id);
-		
 		try {
 			conn = DataSourceManager.getConnection();
-			pstmt = conn.prepareStatement("UPDATE article set title=?, content=?, updatedat=sysdate WHERE article_id=? and author_id=?");
+			pstmt = conn.prepareStatement("UPDATE article set title=?, content=?, updatedat=sysdate WHERE article_id=?");
 
-			pstmt.setString(1, article.getTitle());
-		    pstmt.setString(2, article.getContent());
-		    pstmt.setLong(3, article.getArticleId());
-		    pstmt.setLong(4, member.getMemberId());
+			pstmt.setString(1, title);
+		    pstmt.setString(2, content);
+		    pstmt.setLong(3, articleId);
 		    
 			int count = pstmt.executeUpdate();
 			
@@ -195,16 +181,15 @@ public class ArticleDAO {
 	}
 	
 	//delete
-	public static boolean deleteArticle(long articleId, long authorId) throws SQLException {
+	public static boolean deleteArticle(long articleId) throws SQLException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		try {
-			conn = DataSourceManager.getConnection(); //DB와 connection 생성
+			conn = DataSourceManager.getConnection(); 
 			
-			pstmt = conn.prepareStatement("delete from article where article_id=? and author_id"); //SQL Statement 생성
-			pstmt.setLong(1, articleId); //statement의 ?에 parameter로 받은 변수 대입
-			pstmt.setLong(2, authorId);
-			int result = pstmt.executeUpdate(); //완성한 statement sql 실행 후 결과값 받기 
+			pstmt = conn.prepareStatement("delete from article where article_id=?"); 
+			pstmt.setLong(1, articleId); 
+			int result = pstmt.executeUpdate(); 
 			if(result != 0) {
 				return true;
 			}
