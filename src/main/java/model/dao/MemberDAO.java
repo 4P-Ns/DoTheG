@@ -4,7 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
+import model.domain.Lecture;
 import model.domain.Member;
 import util.DataSourceManager;
 
@@ -145,4 +149,41 @@ public class MemberDAO {
 			}
 			return false;
 		}
+		
+		public static Map<Integer, String> getLecturesTeacher() throws SQLException {
+		    String sql = "SELECT l.lecture_id, m.name " +
+		                 "FROM member m " +
+		                 "JOIN lecture l ON m.member_id = l.member_id";
+
+		    Connection conn = null;
+		    PreparedStatement pstmt = null;
+		    ResultSet rs = null;
+		    Map<Integer, String> lectureTeacherMap = new HashMap<>();
+
+		    try {
+		        conn = DataSourceManager.getConnection();
+		        pstmt = conn.prepareStatement(sql);
+		        rs = pstmt.executeQuery();
+
+		        while (rs.next()) {
+		            int lectureId = rs.getInt("lecture_id");
+		            String teacherName = rs.getString("name");
+		            
+		            lectureTeacherMap.put(lectureId, teacherName);
+		        }
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		        throw new SQLException("Database error occurred while fetching lectures.", e);
+		    } finally {
+		        try {
+		            if (rs != null) rs.close();
+		            if (pstmt != null) pstmt.close();
+		            if (conn != null) conn.close();
+		        } catch (SQLException e) {
+		            e.printStackTrace();
+		        }
+		    }
+		    return lectureTeacherMap;
+		}
+
 }

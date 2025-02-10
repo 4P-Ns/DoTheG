@@ -47,4 +47,5 @@ public class LectureDAO {
         }
         return lectures;
     }
+   
 }
