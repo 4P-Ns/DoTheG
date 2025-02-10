@@ -2,8 +2,6 @@
 <img src="https://capsule-render.vercel.app/api?type=waving&color=FFE146&height=300&section=header&text=🦔DoTheG🦔&fontSize=70&fontColor=FFFFFF&animation=fadeIn&width=1200" width="1200" />
 
 
-## <div align="center" style="font-size: 70px; color: #000080; animation: glow 1.5s infinite;">두지런하게 공부해!!~~</div>
-
 <br>
 
 
@@ -57,19 +55,15 @@
 
 ![image](https://github.com/user-attachments/assets/b71a9dfe-b579-4e60-b60b-a0add3ef95d5)
 
-🧳 60대 '영 시니어' 여행객의 비중이 24.6%로 전체의 4명 중 1명을 차지하며, 2019년 대비 가장 큰 증가폭을 기록
+**🧳 60대 '영 시니어' 여행객의 비중이 24.6%로 전체의 4명 중 1명을 차지하며, 2019년 대비 가장 큰 증가폭을 기록**
+<details> <summary>노랑풍선은 미리 보는 2025년 상반기 해외 패키지여행 트렌드</summary> https://www.hankyung.com/article/202412027165g </details> 
 
-🌍 노랑풍선은 미리 보는 2025년 상반기 해외 패키지여행 트렌드 https://www.hankyung.com/article/202412027165g
+**🏫 70%가 새로운 것을 배우고 발전하고자 노력하며, 절반 이상이 은퇴 후에도 '늘 배우고 성장하는 삶'을 희망**
+<details> <summary>하나은행 5060 시니어의 The Next 라이프</summary> https://www.hanaif.re.kr/boardDetail.do?hmpeSeqNo=36336 </details> 
 
-🏫 70%가 새로운 것을 배우고 발전하고자 노력하며, 절반 이상이 은퇴 후에도 '늘 배우고 성장하는 삶'을 희망
+**👨‍👩‍👧‍👦 가족을 중시하는 X세대(49.6%)가 개인을 중시하는 X세대(42.6%)보다 삶의 만족도 더 높음**
+<details> <summary>2024 우리금융 트렌드 보고서</summary> https://www.woorifg.com/kor/pr/financial-report/list.do </details>
 
-📚 하나은행 5060 시니어의 The Next 라이프 https://www.hanaif.re.kr/boardDetail.do?hmpeSeqNo=36336 
-
-👨‍👩‍👧‍👦 가족을 중시하는 X세대(49.6%)가 개인을 중시하는 X세대(42.6%)보다 삶의 만족도 더 높음
-
-❤️ 2024 우리금융 트렌드 보고서 https://www.woorifg.com/kor/pr/financial-report/list.do
-
-→ 50~60대를 위한 맞춤형 언어 학습 및 여행 연계 플랫폼 구축, 가족/지인과 함께하는 맞춤형 언어 학습 경험 제공
 
 <br>
 
@@ -77,31 +71,29 @@
 
 ![image](https://github.com/user-attachments/assets/d1108263-e214-4d24-9fa7-17d346233fa9)
 <br>
-### 핵심 서비스 기능-자기계발을 추구하는 신중년층의 니즈에 맞춤화⁠⁠
 
 - 👨‍👩‍👧‍👦 **가족/지인 연계 학습 시스템**: 가족과 친구들이 모여 서로 도와가며 즐겁게 배우는 상호작용 중심의 교육 환경 구축⁠⁠
 - ✈️ **학습-여행 연계 서비스**: 학습 완료 시 여행 비용 절감 혜택을 제공하고, 배운 언어를 실제로 활용할 수 있는 기회 제공⁠⁠
 - 📱 **학습 관리 시스템:**  맞춤형 진도 관리와 성취도 트래킹을 통해 체계적인 학습 지원⁠⁠<br>
-<br>
 <br>
 
 **1. 핵심 파트너 🤝**
 
 👩‍🏫 프리랜서 강사
 
-  • 맞춤형 언어 교육 제공
+• 맞춤형 언어 교육 제공
 
-  • 다양한 언어와 수준별 강의 진행
+• 다양한 언어와 수준별 강의 진행
 
-  • 학습자 맞춤 커리큘럼 설계
+• 학습자 맞춤 커리큘럼 설계
 
 ✈️ 여행사
 
-  • 학습한 언어권 여행 상품 제공
+• 학습한 언어권 여행 상품 제공
 
-  • 맞춤형 패키지 투어 구성
-  <br>
-  <br>
+• 맞춤형 패키지 투어 구성
+<br>
+<br>
 
 **2. 핵심 활동 🎯**
 
@@ -147,21 +139,18 @@
 
 📊 학습 관리 시스템
 
-  • 개인별 학습 진도 분석
-
-  • 목표 달성 피드백 제공
+• 개인별 학습 진도 분석
+• 목표 달성 피드백 제공
 
 ✈️ 여행 상품 연계
 
-  • 강의 진행도에 따른 여행 상품 맞춤 제안
-
-  • 언어권별 최적화된 여행 패키지
+• 강의 진행도에 따른 여행 상품 맞춤 제안
+• 언어권별 최적화된 여행 패키지
 
 👥 커뮤니티 활성화
 
-  • 학습자간 경험 교류
-
-  • 소통 기반 학습 환경 조성
+• 학습자간 경험 교류
+• 소통 기반 학습 환경 조성
 <br>
 <br>
 
